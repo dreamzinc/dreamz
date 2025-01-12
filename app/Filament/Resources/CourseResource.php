@@ -160,7 +160,6 @@ class CourseResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->query(fn(Course $query) => $query->where('user_id', Filament::auth()->id()))
             ->columns([
                 Tables\Columns\ImageColumn::make('photo')
                     ->extraImgAttributes(['loading' => 'lazy'])
