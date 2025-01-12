@@ -81,12 +81,13 @@ class PromotionResource extends Resource
                             ->preload()
                             ->reactive()
                             ->default(Filament::auth()->id())
-                            ->hidden(!Filament::auth()->user()->hasRole('super_admin')),
+                            ->hidden(!Filament::auth()->user()->hasRole('super_admin'))
+                            ->columnSpanFull(),
                         Forms\Components\TextInput::make('code')
                             ->label('Referral Code')
                             ->disabled()
                             ->placeholder('The referral code will be generated automatically')
-                            ->columnSpanFull(!Filament::auth()->user()->hasRole('super_admin')),
+                            ->columnSpanFull(),
                     ])
                     ->columnSpan([
                         'default' => 'full',

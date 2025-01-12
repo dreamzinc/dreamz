@@ -84,7 +84,8 @@ class CourseResource extends Resource
                             ->preload()
                             ->reactive()
                             ->default(Filament::auth()->id())
-                            ->hidden(!Filament::auth()->user()->hasRole('super_admin')),
+                            ->hidden(!Filament::auth()->user()->hasRole('super_admin'))
+                            ->columnSpanFull(),
                         Forms\Components\Select::make('category_id')
                             ->label('Category')
                             ->required()
@@ -93,7 +94,7 @@ class CourseResource extends Resource
                             ->preload()
                             ->reactive()
                             ->placeholder('Select a category')
-                            ->columnSpanFull(!Filament::auth()->user()->hasRole('super_admin')),
+                            ->columnSpanFull(),
                         Forms\Components\TextInput::make('title')
                             ->label('Title')
                             ->required()

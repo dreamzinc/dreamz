@@ -91,7 +91,7 @@
           </div>
           <div class="mb-4 flex items-center justify-between gap-4">
             <span
-              class="me-2 rounded bg-success-100 px-2.5 py-0.5 text-xs font-medium text-success-800 dark:bg-success-900 dark:text-success-300">{{ $service->category->description }}</span>
+              class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">{{ $service->category->description }}</span>
           </div>
           <h1 class="text-lg text-left font-semibold leading-tight text-gray-900 dark:text-white">
             {{ $service->title }}</h1>
@@ -107,7 +107,7 @@
             </li>
           </ul>
           <div class="mt-4 flex items-center justify-between gap-4">
-            <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">Mulai Dari Rp
+            <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white"><span class="text-sm">Mulai Dari</span> Rp
               {{ number_format($service->price, 0, ",", ".") }}</p>
             <button data-modal-target="pesanModal{{ $service->id }}" data-modal-toggle="pesanModal{{ $service->id }}"
               type="button"
@@ -259,7 +259,7 @@
           </div>
           <div class="mb-4 flex items-center justify-between gap-4">
             <span
-              class="me-2 rounded bg-success-100 px-2.5 py-0.5 text-xs font-medium text-success-800 dark:bg-success-900 dark:text-success-300">{{ $course->category->description }}</span>
+              class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">{{ $course->category->description }}</span>
           </div>
           <h1 class="text-lg text-left font-semibold leading-tight text-gray-900 dark:text-white">
             {{ $course->title }}</h1>
