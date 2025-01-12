@@ -89,10 +89,6 @@
             <span
               class="me-2 rounded bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800 dark:bg-purple-900 dark:text-purple-300">{{ $service->category->name }}</span>
           </div>
-          <div class="mb-4 flex items-center justify-between gap-4">
-            <span
-              class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">{{ $service->category->description }}</span>
-          </div>
           <h1 class="text-lg text-left font-semibold leading-tight text-gray-900 dark:text-white">
             {{ $service->title }}</h1>
           <ul class="mt-2 flex items-center gap-4">
@@ -142,6 +138,8 @@
                   </div>
                   <form action="{{ url('order-service/'.$service->id) }}" method="POST">
                     @csrf
+                    <span
+                        class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">{{ $service->category->description }}</span>
                     <h4 class="text-md font-semibold text-gray-900 dark:text-white">
                       {{ $service->title }}
                     </h4>
@@ -257,10 +255,6 @@
             <span
               class="me-2 rounded bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800 dark:bg-purple-900 dark:text-purple-300">{{ $course->category->name }}</span>
           </div>
-          <div class="mb-4 flex items-center justify-between gap-4">
-            <span
-              class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">{{ $course->category->description }}</span>
-          </div>
           <h1 class="text-lg text-left font-semibold leading-tight text-gray-900 dark:text-white">
             {{ $course->title }}</h1>
           <ul class="mt-2 flex items-center gap-4">
@@ -310,6 +304,8 @@
                   </div>
                   <form action="{{ url('order-course/'.$course->id) }}" method="POST">
                     @csrf
+                    <span
+                        class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">{{ $course->category->description }}</span>
                     <h4 class="text-md font-semibold text-gray-900 dark:text-white">
                       {{ $course->title }}
                     </h4>
