@@ -129,7 +129,6 @@ class ServiceResource extends Resource
                         Forms\Components\FileUpload::make('photo')
                             ->label('Upload Photo')
                             ->required()
-                            ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/webp', 'image/jfif'])
                             ->maxSize(1024)
                             ->directory('photos')
                             ->image()
@@ -139,7 +138,6 @@ class ServiceResource extends Resource
                             ->panelAspectRatio('16:9')
                             ->panelLayout('integrated')
                             ->helperText('Upload a valid image file (jpg, jpeg, webp, jfif)')
-                            ->reactive()
                             ->columnSpanFull(),
                     ])
                     ->columnSpan([

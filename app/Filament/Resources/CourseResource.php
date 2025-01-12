@@ -139,7 +139,6 @@ class CourseResource extends Resource
                             ->panelAspectRatio('16:9')
                             ->panelLayout('integrated')
                             ->helperText('Upload a valid image file (jpg, jpeg, webp, jfif)')
-                            ->reactive()
                             ->columnSpanFull(),
                     ])
                     ->columnSpan([
