@@ -7,7 +7,8 @@
       class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
       role="alert">
       <span class="text-xs bg-purple-600 rounded-full text-white px-4 py-1.5 mr-3">Baru</span>
-      <span class="text-sm font-medium">DreamZinc hadir</span><span class="ms-1 hidden md:inline">untuk mendukung mahasiswa!</span>
+      <span class="text-sm font-medium">DreamZinc hadir</span><span class="ms-1 hidden md:inline">untuk mendukung
+        mahasiswa!</span>
       <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd"
           d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
@@ -103,7 +104,8 @@
             </li>
           </ul>
           <div class="mt-4 flex items-center justify-between gap-4">
-            <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white"><span class="text-sm">Mulai Dari</span> Rp
+            <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white"><span class="text-sm">Mulai
+                Dari</span> Rp
               {{ number_format($service->price, 0, ",", ".") }}</p>
             <button data-modal-target="pesanModal{{ $service->id }}" data-modal-toggle="pesanModal{{ $service->id }}"
               type="button"
@@ -139,7 +141,7 @@
                   <form action="{{ url('order-service/'.$service->id) }}" method="POST">
                     @csrf
                     <span
-                        class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">{{ $service->category->description }}</span>
+                      class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">{{ $service->category->description }}</span>
                     <h4 class="text-md font-semibold text-gray-900 dark:text-white">
                       {{ $service->title }}
                     </h4>
@@ -163,8 +165,8 @@
                           placeholder="Masukkan nomor WhatsApp" required>
                       </div>
                       <div>
-                        <label for="deadline"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Batas Waktu</label>
+                        <label for="deadline" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Batas
+                          Waktu</label>
                         <input type="datetime-local" name="deadline" id="deadline"
                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-600 focus:border-gray-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500"
                           required>
@@ -175,7 +177,7 @@
                         <textarea id="description" name="description" rows="4"
                           class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500"
                           placeholder="Masukkan deskripsi pesanan" required></textarea>
-                      </div>                      
+                      </div>
                     </div>
                     <button type="submit"
                       class="text-white inline-flex items-center bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
@@ -225,13 +227,13 @@
           <ul class="p-2 text-left text-sm font-medium text-gray-500 dark:text-gray-400"
             aria-labelledby="sortDropdownButton">
             <li>
-              <button onclick="filterCategory('all')"
+              <button onclick="filterCategoryCrourse('all')"
                 class="group inline-flex w-full items-center rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white">
                 Semua Kategori </button>
             </li>
             @foreach(App\Models\Category::get() as $category)
             <li>
-              <button onclick="filterCategory('{{ strtolower(str_replace(' ', '', $category->name)) }}')"
+              <button onclick="filterCategoryCrourse('{{ strtolower(str_replace(' ', '', $category->name)) }}')"
                 class="group inline-flex w-full items-center rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white">{{ $category->name }}</button>
             </li>
             @endforeach
@@ -243,7 +245,7 @@
     <div class="mb-4 grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4" id="product-container">
       @foreach(App\Models\Course::with('category', 'orders')->get() as $course)
       <div
-        class="product-card {{ strtolower(str_replace(' ', '', $course->category->name)) }} rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+        class="product-card-course {{ strtolower(str_replace(' ', '', $course->category->name)) }} rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
         <div class="h-56 w-full">
           <img class="mx-auto h-full dark:hidden" src="{{ asset('storage/'.$course->photo) }}"
             alt="{{ $course->title }}" />
@@ -305,7 +307,7 @@
                   <form action="{{ url('order-course/'.$course->id) }}" method="POST">
                     @csrf
                     <span
-                        class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">{{ $course->category->description }}</span>
+                      class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">{{ $course->category->description }}</span>
                     <h4 class="text-md font-semibold text-gray-900 dark:text-white">
                       {{ $course->title }}
                     </h4>
@@ -329,8 +331,8 @@
                           placeholder="Masukkan nomor WhatsApp" required>
                       </div>
                       <div>
-                        <label for="deadline"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Batas Waktu</label>
+                        <label for="deadline" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Batas
+                          Waktu</label>
                         <input type="datetime-local" name="deadline" id="deadline"
                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-600 focus:border-gray-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500"
                           required>
@@ -341,7 +343,7 @@
                         <textarea id="description" name="description" rows="4"
                           class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500"
                           placeholder="Masukkan deskripsi pesanan" required></textarea>
-                      </div>                      
+                      </div>
                     </div>
                     <button type="submit"
                       class="text-white inline-flex items-center bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
@@ -366,11 +368,12 @@
 
 <footer class="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-900">
   <div class="mx-auto max-w-screen-xl text-center">
-      <a href="#" class="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white">
-          DreamZinc
-      </a>
-      <p class="my-6 text-gray-500 dark:text-gray-400">Solusi digital untuk Mahasiswa.</p>
-      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">DreamZinc™</a></span>
+    <a href="#" class="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white">
+      DreamZinc
+    </a>
+    <p class="my-6 text-gray-500 dark:text-gray-400">Solusi digital untuk Mahasiswa.</p>
+    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#"
+        class="hover:underline">DreamZinc™</a></span>
   </div>
 </footer>
 

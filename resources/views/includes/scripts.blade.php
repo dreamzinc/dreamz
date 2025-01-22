@@ -37,7 +37,7 @@
     });
 </script>
 <script>
-function filterCategory(category) {
+    function filterCategory(category) {
     const allCards = document.querySelectorAll('.product-card');
     const allBtns = document.querySelectorAll('.filter-btn');
     
@@ -64,4 +64,34 @@ function filterCategory(category) {
     selectedBtn.classList.remove('bg-purple-700');
     selectedBtn.classList.add('bg-purple-800');
 }
+</script>
+
+<script>
+    function filterCategoryCrourse(category) {
+        const allCards = document.querySelectorAll('.product-card-course');
+        const allBtns = document.querySelectorAll('.filter-btn-course');
+        
+        allBtns.forEach(btn => {
+        btn.classList.remove('bg-purple-800');
+        btn.classList.add('bg-purple-700');
+        });
+    
+        if (category === 'all') {
+        allCards.forEach(card => {
+            card.style.display = 'block';
+        });
+        } else {
+        allCards.forEach(card => {
+            if (card.classList.contains(category)) {
+            card.style.display = 'block';
+            } else {
+            card.style.display = 'none';
+            }
+        });
+        }
+        
+        const selectedBtn = document.getElementById(`${category}-btn`) || document.getElementById('all-btn');
+        selectedBtn.classList.remove('bg-purple-700');
+        selectedBtn.classList.add('bg-purple-800');
+    }
 </script>
