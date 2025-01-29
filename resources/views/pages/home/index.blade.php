@@ -103,10 +103,18 @@
               </p>
             </li>
           </ul>
+          <ul class="mt-2 flex items-center gap-4">
+            <li class="flex items-center gap-2">
+              <p class="text-sm font-medium text-purple-800 dark:text-purple-300">Dari : {{ $service->user->name }}
+              </p>
+            </li>
+          </ul>
           <div class="mt-4 flex items-center justify-between gap-4">
-            <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white"><span class="text-sm">Mulai
-                Dari</span> Rp
-              {{ number_format($service->price, 0, ",", ".") }}</p>
+            <div class="flex flex-col">
+              <p class="text-sm font-extrabold leading-tight text-gray-900 dark:text-white">Mulai Dari</p>
+              <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">Rp
+                {{ number_format($service->price, 0, ",", ".") }}</p>
+            </div>
             <button data-modal-target="pesanModal{{ $service->id }}" data-modal-toggle="pesanModal{{ $service->id }}"
               type="button"
               class="inline-flex items-center rounded-lg bg-purple-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
@@ -140,11 +148,11 @@
                   </div>
                   <form action="{{ url('order-service/'.$service->id) }}" method="POST">
                     @csrf
-                    <span
-                      class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">{{ $service->category->description }}</span>
                     <h4 class="text-md font-semibold text-gray-900 dark:text-white">
                       {{ $service->title }}
                     </h4>
+                    <span
+                      class="me-2 rounded bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800 dark:bg-purple-900 dark:text-purple-300">{{ $service->category->name }}</span>
                     <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400 mb-2">
                       {{ $service->description }}
                     </p>
@@ -270,6 +278,12 @@
               </p>
             </li>
           </ul>
+          <ul class="mt-2 flex items-center gap-4">
+            <li class="flex items-center gap-2">
+              <p class="text-sm font-medium text-purple-800 dark:text-purple-300">Dari : {{ $course->user->name }}
+              </p>
+            </li>
+          </ul>
           <div class="mt-4 flex items-center justify-between gap-4">
             <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">Rp
               {{ number_format($course->price, 0, ",", ".") }}</p>
@@ -306,11 +320,11 @@
                   </div>
                   <form action="{{ url('order-course/'.$course->id) }}" method="POST">
                     @csrf
-                    <span
-                      class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">{{ $course->category->description }}</span>
                     <h4 class="text-md font-semibold text-gray-900 dark:text-white">
                       {{ $course->title }}
                     </h4>
+                    <span
+                      class="me-2 rounded bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800 dark:bg-purple-900 dark:text-purple-300">{{ $course->category->name }}</span>
                     <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400 mb-2">
                       {{ $course->description }}
                     </p>
